@@ -329,40 +329,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-
-1. **Performance Requirements:**
-    - The system should respond to user input within 1 second on average.
-    - It should be able to handle a minimum of 100 concurrent user sessions without significant performance degradation.
-
-2. **Scalability:**
-    - The system should be scalable to accommodate a growing number of car insurance policies and customer records.
-    - It should support at least 1,000 customer profiles and policies initially and be able to scale to 10,000 over time.
-
-3. **Availability and Reliability:**
-    - The system should be available 24/7, with planned maintenance windows communicated in advance.
-    - It should have a reliability rate of at least 99.9%, minimizing downtime and data loss.
-
-4. **Usability:**
-    - A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-    - The CLI and GUI interfaces should be intuitive and user-friendly, allowing agents to perform tasks efficiently.
-    - The system should provide clear error messages and support for keyboard shortcuts for CLI users.
-
-5. **Maintainability:**
-    - The codebase should follow industry best practices and be well-documented to facilitate maintenance and future updates.
-    - Updates and bug fixes should be deployable without significant disruption to the system.
-
-6. **Interoperability:**
-    - The system should be compatible with various operating systems commonly used by insurance agents.
-    - It should support importing/exporting data in standard formats (e.g., CSV, JSON) for interoperability with other systems.
-
-7. **Documentation:**
-   - Comprehensive documentation, including user manuals and technical guides, should be available to assist users and administrators.
-   - The documentation should be regularly updated to reflect changes and improvements to the system.
-
-8. **Response Time:**
-   - The system should provide real-time updates on policy status and customer information, ensuring that agents can quickly access the information they need.
-   - Queries for customer data should return results in less than 2 seconds.
+1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 *{More to be added}*
 
