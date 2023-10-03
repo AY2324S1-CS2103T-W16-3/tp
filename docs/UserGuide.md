@@ -171,17 +171,26 @@ Expected output upon failure:
 
 ### Deleting a person : `delete`
 
-Deletes the specified person from the address book.
+Deletes the specified person from the database.
 
 Format: `delete INDEX`
 
 * Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index refers to the index number shown in the displayed list of car owners and is a compulsory field.
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `list` followed by `delete 2` deletes the 2nd person in the database.
+* `find n/Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+
+Acceptable values for each parameter:
+* `INDEX` : It must be a **must be a positive integer** 1, 2, 3, …​
+
+Expected output upon success : [coming soon]
+
+Expected output upon failure:
+* Profile at the specified `INDEX` cannot be found: `Error: Invalid Index`
+* Missing `INDEX` parameter: `Error: Missing Index`
+* Incorrect `INDEX` parameter: `Error: The parameter is not of the type positive integer`
 
 ### Clearing all entries : `clear`
 
