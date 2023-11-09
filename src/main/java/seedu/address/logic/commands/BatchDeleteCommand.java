@@ -5,13 +5,17 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DELETE_MONTH;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
+import seedu.address.commons.util.PredicateUtil;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.month.DeleteMonth;
 import seedu.address.model.person.CompanyContainsKeywordsPredicate;
+import seedu.address.model.person.HasPolicyPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PolicyExpiryInDeleteMonthPredicate;
 import seedu.address.model.policy.Company;
@@ -35,7 +39,7 @@ public class BatchDeleteCommand extends Command {
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_COMPANY + "Allianz";
 
-    public static final String MESSAGE_DELETE_PEOPLE_SUCCESS = "Batch delete people in: %1$s";
+    public static final String MESSAGE_DELETE_PEOPLE_SUCCESS = "Batch delete people whose policy %1$s";
 
     private DeleteMonth month = null;
     private Company company = null;
@@ -66,18 +70,35 @@ public class BatchDeleteCommand extends Command {
 
         if (month != null) {
             p = new PolicyExpiryInDeleteMonthPredicate(month);
-            resultInfo = month.toString();
+            resultInfo = "expiry date is in" + month.toString();
         } else if (company != null) {
             p = new CompanyContainsKeywordsPredicate(company.toString());
-            resultInfo = company.toString();
+            resultInfo = "company contains keyword: " + company.toString();
         } else {
             throw new CommandException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     BatchDeleteCommand.MESSAGE_USAGE));
         }
 
-        model.batchDeleteWithPredicate(p);
+        model.batchDeleteWithPredicate(addHasPolicyPredicate(p));
 
         return new CommandResult(String.format(MESSAGE_DELETE_PEOPLE_SUCCESS, resultInfo));
+    }
+
+    /**
+     * Combines given predicate with predicate that checks a person has policy.
+     *
+     * @param p A predicate used to test a person.
+     * @return A predicate which is combination of given predicate and predicate that checks a person has policy.
+     */
+    private Predicate<Person> addHasPolicyPredicate(Predicate<Person> p) {
+        List<Predicate<Person>> predicates = new ArrayList<>();
+
+        predicates.add(new HasPolicyPredicate());
+        predicates.add(p);
+
+        Predicate<Person> newPredicate = PredicateUtil.combinePredicates(predicates);
+
+        return newPredicate;
     }
 
     @Override

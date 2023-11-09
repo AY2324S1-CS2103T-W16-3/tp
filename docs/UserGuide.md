@@ -74,11 +74,12 @@ Format: `help`
 
 Adds a client to the database.
 
-Format: `add n/NAME i/NRIC p/CONTACT NUMBER e/EMAIL a/ADDRESS t/TAG l/LICENCE PLATE [c/COMPANY
+Format: `add n/NAME i/NRIC p/CONTACT NUMBER e/EMAIL a/ADDRESS [t/TAG]... l/LICENCE PLATE [c/COMPANY
  pn/POLICY NUMBER pi/POLICY ISSUE DATE pe/POLICY EXPIRY DATE]`
 
 * Add a client's details in the database.
-* **All** client details must be present when using this command.
+* **All** client details **except tag** must be present when using this command.
+* Tag is optional and this command allows multiple tags
 * If adding a client’s policy, **all** policy details must be present when using this command.
 
 Examples:
@@ -86,14 +87,14 @@ Examples:
 * `add n/Bob Anderson i/578A p/54783402 e/bobanderson@gmail.com a/Blk 233 Serangoon Avenue 3, #05-12 t/teacher l/SGP1208J c/DEF Insurance pn/263J pi/20-09-2023 pe/19-09-2024` adds a client Bob with the policy he buys.
 
 Acceptable values for each parameter:
-* `n/NAME`: Alphabets.
+* `n/NAME`: Alphanumeric.
 * `i/NRIC`: Alphanumeric, _exactly_ 4 characters.
 * `p/CONTACT NUMBER`: Numeric, _exactly_ 8 characters.
 * `e/EMAIL`: Alphanumeric and/or special characters, no white spaces allowed, standard email format.
 * `t/TAG`: Alphabets, no white spaces allowed.
 * `c/COMPANY`: Alphabets and/or special characters, white spaces allowed.
 * `l/LICENCE PLATE`: Alphanumeric, _up to_ 9 characters.
-* `pn/POLICY NUMBER`: Alphanumeric, _exactly_ 8 characters.
+* `pn/POLICY NUMBER`: Alphanumeric, _up to_ 8 characters.
 * `pi/POLICY ISSUE DATE` and `pe/POLICY EXPIRY DATE`: Date in the format dd-mm-yyyy.
 
 Expected output upon success: <br>
@@ -318,7 +319,7 @@ Format: `batchdelete [c/COMPANY] [dm/DELETE MONTH]`
 * **Only one** of the optional fields must be provided.
 
 Examples:
-* `batchdelete 07-2020 ` batch delete clients whose policy expiry date is in July 2020.
+* `batchdelete dm/07-2020 ` batch delete clients whose policy expiry date is in July 2020.
 * `batchdelete c/DEF Insurance` batch delete clients who buy policy from the company DEF Insurance.
 
 Acceptable values for each parameter:
