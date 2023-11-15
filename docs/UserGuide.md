@@ -44,12 +44,12 @@ Welcome to the user guide for InsureIQ, the ultimate **contact management system
 Additional information for your understanding.
 </div>
 
-<div markdown="span" class="alert alert-success">
+<div markdown="block" class="alert alert-success">
 **:bulb: Tips:**
 Tips for you to maximise efficiency.
 </div>
 
-<div markdown="span" class="alert alert-warning">
+<div markdown="block" class="alert alert-warning">
 **:exclamation: Warnings:**
 Important information you need to be careful about!
 </div>
@@ -312,7 +312,7 @@ Error: The parameter is not of the type positive integer
 Batch delete clients based on a specific condition.
 
 <div markdown="span" class="alert alert-success">
-**:bulb: Usage tip:**
+**:bulb: Usefulness of `batchdelete`:**
 Use `batchdelete` to quickly delete clients whose policies have expired, or for companies you are no longer working with. 
 </div>
 
@@ -335,7 +335,7 @@ Expected output upon success: <br>
 ![BatchDeleteSuccess](images/BatchDeleteSuccess.png)
 
 <div markdown="span" class="alert alert-info">
-**:information_source: Confirmation message:**
+**:information_source: Confirmation message**
 Even if no clients are deleted, InsureIQ will still show a confirmation message to let you know that the `batchdelete` 
 command has been successfully processed.
 </div>
@@ -456,8 +456,7 @@ Clears all entries from your client list.
 Format: `clear`
 
 <div markdown="span" class="alert alert-warning">
-**:exclamation: Caution:**
-This action is irreversible! You can copy the data file before clearing to have a backup.
+**:exclamation: Caution:**This action is irreversible! You can copy the data file before clearing to have a backup.
 </div>
 
 
@@ -546,13 +545,10 @@ Sure! you can transfer your data to another computer by the following steps belo
 
 ## Glossary
 
-* **Command Line Interface (CLI)**: A way of interacting with the software by typing textual commands
-* **Graphical User Interface (GUI)**: A way of interacting with the software using visual elements like buttons and windows
-* **Policy fields**: Refers to the company the policy is under, policy number, policy issue date and policy expiry date
-* **Client**: Buyers / potential buyers that car insurance agent is in contact with, such that it is stored inside InsureIQ
-* **Client list**: List of clients and their personal and policy details in the InsureIQ app
+_{TO DO}_
 
----------
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
@@ -573,7 +569,9 @@ Sure! you can transfer your data to another computer by the following steps belo
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Appendix: UG workload distribution
+Appendix
+
+## UG workload distribution
 
 | Full Name of Team Member | Agreed allocated sections, duties, roles                                 | Changes if any, record date and reasons for changes | Actual contribution to the UG                                            |
 |--------------------------|--------------------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------|
